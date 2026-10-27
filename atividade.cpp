@@ -71,7 +71,8 @@ void Menu() {
              << "[8] para sair\n"
              << "Escolha: ";
         cin >> opcao;
-
+/*As opçoes nos cases serao atualizadas sempre que eu fizer uma implementaçao
+   nova no codigo, de uma opçao, assim como a opçao 1 e 3 foram implementadas */
         switch (opcao) {
             case 1:
             cout << "ENTREI NA OPCAO 1\n";
