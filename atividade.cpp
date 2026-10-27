@@ -19,6 +19,7 @@ void consultarCampeoes(campeao lista[], int tamanho) {
         cout << "Nenhum campeao cadastrado\n";
         return;
     }
+
 /*bloco onde é feita a varredura do campeao listado, linha por linha*/
     cout << "\n=== LISTA DE CAMPEOES ===\n";
     for (int i = 0; i < tamanho; i++) {
@@ -30,6 +31,36 @@ void consultarCampeoes(campeao lista[], int tamanho) {
     }
     cout << "\nAperte enter para voltar para o menu\n";
     cin.ignore();
+    cin.get();
+}
+
+void buscarCampeaoPorNome(campeao lista[], int tamanho){
+    cout << "\n=== BUSCAR CAMPEAO ===\n";
+    if(tamanho == 0){
+    cout << "\nnenhum campeao cadastrado com o nome buscado\n\n";
+    return;
+    }
+    string buscarNome;
+    
+    cout << "buscar campeao: ";
+    cin.ignore();
+    getline(cin,buscarNome);
+    bool encontrado = false;
+
+        for(int i=0; i < tamanho; i++){
+            if(lista[i].nome == buscarNome)
+            cout << "\nCampeao encontrado\n\n";
+            cout << "Nome: " << lista[i].nome << endl;
+            cout << "idade: " << lista[i].idade << endl;
+            cout << "Regiao/País: " << lista[i].regiao_pais << endl;
+            cout << "Vitorias: " << lista[i].vitorias << endl;
+            cout << "-----------------------\n";
+            encontrado = true;
+        }
+    if(!encontrado){
+        cout << "\nNenhum campeao encontrado com o nome: " << buscarNome << endl;
+    }
+    cout << "\nAperte enter para voltar ao menu....";
     cin.get();
 }
 // bloco para cadastrar qualquer campeao
@@ -80,7 +111,7 @@ void Menu() {
                 consultarCampeoes(listaDeCampeoes, tamanho);
                 break;
             case 2: 
-                cout << "Buscar campeoes por nomes\n";
+                buscarCampeaoPorNome(listaDeCampeoes, tamanho);
                 break;
             case 3: 
                 cadastrarCampeao(listaDeCampeoes, tamanho);
